@@ -50,6 +50,50 @@
             value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
           />
         </div>
+        <div class="form-group">
+          <label for="telephone">Telephone</label>
+          <input
+            type="text"
+            id="telephone"
+            name="telephone"
+            class="form-control"
+            placeholder="Ex.081-XXX-XXXX"
+            value="<%= typeof telephone != 'undefined' ? telephone : '' %>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="firstnum">เลขชุดหน้า</label>
+          <input
+            type="text"
+            id="firstnum"
+            name="firstnum"
+            class="form-control"
+            placeholder="Ex. AA , 1AA , 1AB"
+            value="<%= typeof firstnum != 'undefined' ? firstnum : '' %>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="secondnum">เลขชุดหลัง</label>
+          <input
+            type="text"
+            id="secondnum"
+            name="secondnum"
+            class="form-control"
+            placeholder="EX. 1234"
+            value="<%= typeof secondnum != 'undefined' ? secondnum : '' %>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="secondnum">จังหวัด</label>
+          <input
+            type="text"
+            id="province"
+            name="province"
+            class="form-control"
+            placeholder=""
+            value="<%= typeof province != 'undefined' ? province : '' %>"
+          />
+          </div>
         <button type="submit" class="btn btn-primary btn-block">
           Register
         </button>
@@ -58,3 +102,7 @@
     </div>
   </div>
 </div>
+
+
+
+

@@ -14,10 +14,10 @@ router.get('/register', forwardAuthenticated, (req, res) => res.render('register
 
 // Register
 router.post('/register', (req, res) => {
-  const { name, email, password, password2 } = req.body;
+  const { name, email, password, password2, telephone, firstnum, secondnum, province } = req.body;
   let errors = [];
 
-  if (!name || !email || !password || !password2) {
+  if (!name || !email || !password || !password2 || !telephone || !firstnum || !secondnum || !province ) {
     errors.push({ msg: 'Please enter all fields' });
   }
 
@@ -28,14 +28,30 @@ router.post('/register', (req, res) => {
   if (password.length < 6) {
     errors.push({ msg: 'Password must be at least 6 characters' });
   }
-
+  if (telephone.length > 10) {
+    errors.push({msg : 'หมายเลขโทรศัพท์ไม่ถูกต้อง'});
+  }
+  if(firstnum.length =!2) {
+    error.push({msg: 'เลขชุดหน้าประกอบไปด้วย 2-3หลัก เช่น AA หรือ 1AA' });
+  }
+  if(secondnum.length > 4) {
+    error.push({msg: 'เลขชุดหลังสามารถมีจำนวนหลักได้สูงสุด 4 หลัก' });
+  }
+  if(province.length >15) {
+    error.push({msg: 'ไม่มีจังหวัดนี้'});
+  }
   if (errors.length > 0) {
     res.render('register', {
       errors,
       name,
       email,
       password,
-      password2
+      password2,
+      telephone,
+      firstnum,
+      secondnum,
+
+
     });
   } else {
     User.findOne({ email: email }).then(user => {
@@ -46,7 +62,12 @@ router.post('/register', (req, res) => {
           name,
           email,
           password,
-          password2
+          password2,
+          telephone,
+          firstnum,
+          secondnum,
+
+
         });
       } else {
         const newUser = new User({
