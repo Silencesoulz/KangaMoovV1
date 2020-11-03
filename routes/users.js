@@ -66,6 +66,7 @@ router.post('/register', (req, res) => {
           telephone,
           firstnum,
           secondnum,
+          province
 
 
         });
@@ -73,7 +74,11 @@ router.post('/register', (req, res) => {
         const newUser = new User({
           name,
           email,
-          password
+          password,
+          telephone,
+          firstnum,
+          secondnum,
+          province
         });
 
         bcrypt.genSalt(10, (err, salt) => {
