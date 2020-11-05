@@ -28,16 +28,16 @@ router.post('/register', (req, res) => {
   if (password.length < 6) {
     errors.push({ msg: 'Password must be at least 6 characters' });
   }
-  if (telephone.length > 10) {
+  if (telephone.length <=9 ) {
     errors.push({msg : 'หมายเลขโทรศัพท์ไม่ถูกต้อง'});
   }
-  if(firstnum.length =!2) {
+  if(!(firstnum.length =2 || 3)) {
     error.push({msg: 'เลขชุดหน้าประกอบไปด้วย 2-3หลัก เช่น AA หรือ 1AA' });
   }
   if(secondnum.length > 4) {
     error.push({msg: 'เลขชุดหลังสามารถมีจำนวนหลักได้สูงสุด 4 หลัก' });
   }
-  if(province.length >15) {
+  if(province.length >20) {
     error.push({msg: 'ไม่มีจังหวัดนี้'});
   }
   if (errors.length > 0) {
@@ -50,6 +50,7 @@ router.post('/register', (req, res) => {
       telephone,
       firstnum,
       secondnum,
+      province
 
 
     });
