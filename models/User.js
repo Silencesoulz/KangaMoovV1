@@ -21,10 +21,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  secondnum: {
-    type: String,
-    required: true
-  },
+  
   province: {
     type: String,
     required: true

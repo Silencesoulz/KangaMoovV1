@@ -14,10 +14,10 @@ router.get('/register', forwardAuthenticated, (req, res) => res.render('register
 
 // Register
 router.post('/register', (req, res) => {
-  const { name, email, password, password2, telephone, firstnum, secondnum, province } = req.body;
+  const { name, email, password, password2, telephone, firstnum,  province } = req.body;
   let errors = [];
 
-  if (!name || !email || !password || !password2 || !telephone || !firstnum || !secondnum || !province ) {
+  if (!name || !email || !password || !password2 || !telephone || !firstnum || !province ) {
     errors.push({ msg: 'Please enter all fields' });
   }
 
@@ -31,12 +31,10 @@ router.post('/register', (req, res) => {
   if (telephone.length <=9 ) {
     errors.push({msg : 'หมายเลขโทรศัพท์ไม่ถูกต้อง'});
   }
-  if(!(firstnum.length =2 || 3)) {
+  if(!(firstnum.length =6 || 7)) {
     error.push({msg: 'เลขชุดหน้าประกอบไปด้วย 2-3หลัก เช่น AA หรือ 1AA' });
   }
-  if(secondnum.length > 4) {
-    error.push({msg: 'เลขชุดหลังสามารถมีจำนวนหลักได้สูงสุด 4 หลัก' });
-  }
+  
   if(province.length >20) {
     error.push({msg: 'ไม่มีจังหวัดนี้'});
   }
@@ -66,7 +64,6 @@ router.post('/register', (req, res) => {
           password2,
           telephone,
           firstnum,
-          secondnum,
           province
 
 
@@ -78,7 +75,6 @@ router.post('/register', (req, res) => {
           password,
           telephone,
           firstnum,
-          secondnum,
           province
         });
 
