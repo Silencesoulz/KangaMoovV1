@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+const carController = require('../controller/carController');
 // Load User model
 const User = require('../models/User');
 const { forwardAuthenticated } = require('../config/auth');
@@ -47,7 +48,6 @@ router.post('/register', (req, res) => {
       password2,
       telephone,
       firstnum,
-      secondnum,
       province
 
 
@@ -114,5 +114,8 @@ router.get('/logout', (req, res) => {
   req.flash('success_msg', 'You are logged out');
   res.redirect('/users/login');
 });
+
+//Find
+router.get('/:firstnum',carController.find);
 
 module.exports = router;
