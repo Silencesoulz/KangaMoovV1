@@ -21,18 +21,13 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  
   province: {
     type: String,
     required: true
-  },
-  date: {
-    type: Date,
-    default: Date.now
   }
 });
 
-const User = mongoose.model('User', UserSchema);
+const user = mongoose.model('user', UserSchema);
 
-module.exports = User;
+module.exports = user;
 

@@ -1,19 +1,21 @@
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome <%= user.name %></p>
-<h1>ค้นหาเลขทะเบียน</h1>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
-
-<form action="" method="POST">
-   <input
-   className='footer-input'
-   name='name2'
-   type='name'
-   placeholder='Number'
-   /> 
-<a href="/users/:firstnum" class="btn btn-secondary">search</a>
-
-</form>
-<div class = form-group>
-    <label for ="firstnum">ใส่เลขชุดแรกของท่าน</label>
-
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <h1 class="text-center mb-3"><i class="fas fa fa-search"></i>Search</h1>
+        <% include ./partials/messages %>
+          <p class="lead mb-3" align="center">Welcome <%= user.name %></p>
+          <h1 align="center">ค้นหาเลขทะเบียน</h1>
+          <form action="/users/:firstnum" method="GET">
+            <div class="form-group">
+              <input
+                type="text"
+                name="firstnum"
+                class="form-control"
+                placeholder="Enter Carregis"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Search</button>
+          </form>
+           
 </div>

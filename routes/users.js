@@ -5,14 +5,15 @@ const passport = require('passport');
 const carController = require('../controller/carController');
 // Load User model
 const User = require('../models/User');
+const Car = require('../models/User');
 const { forwardAuthenticated } = require('../config/auth');
+const { mongo } = require('mongoose');
 
-// Login Page
-router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
+
+
 
 // Register Page
 router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
-
 // Register
 router.post('/register', (req, res) => {
   const { name, email, password, password2, telephone, firstnum,  province } = req.body;
@@ -98,7 +99,8 @@ router.post('/register', (req, res) => {
     });
   }
 });
-
+// Login Page
+router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
 // Login
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
@@ -119,3 +121,4 @@ router.get('/logout', (req, res) => {
 router.get('/:firstnum',carController.find);
 
 module.exports = router;
+
