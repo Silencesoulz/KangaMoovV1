@@ -6,9 +6,10 @@ try {
     if(!carfind){
         throw new Error('ไม่พบทะเบียนนี้ในระบบ');
     }
-    res.status(200).json({
-        data:carfind
-    });
+    res.status(200).json(
+        {data: carfind}
+        // res.redirect('/data',{data: carfind})
+    );
 } catch (error) {
     res.status(400).json({
         error:{
