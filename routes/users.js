@@ -5,9 +5,8 @@ const passport = require('passport');
 const carController = require('../controller/carController');
 // Load User model
 const User = require('../models/User');
-const Car = require('../models/User');
+
 const { forwardAuthenticated } = require('../config/auth');
-const { mongo } = require('mongoose');
 
 
 
@@ -16,10 +15,10 @@ const { mongo } = require('mongoose');
 router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
 // Register
 router.post('/register', (req, res) => {
-  const { name, email, password, password2, telephone, firstnum,  province } = req.body;
+  const { name, email, password, password2, telephone, firstnum,  province,line } = req.body;
   let errors = [];
 
-  if (!name || !email || !password || !password2 || !telephone || !firstnum || !province ) {
+  if (!name || !email || !password || !password2 || !telephone || !firstnum || !province || !line ) {
     errors.push({ msg: 'Please enter all fields' });
   }
 
@@ -49,7 +48,8 @@ router.post('/register', (req, res) => {
       password2,
       telephone,
       firstnum,
-      province
+      province,
+      line
 
 
     });
@@ -65,7 +65,8 @@ router.post('/register', (req, res) => {
           password2,
           telephone,
           firstnum,
-          province
+          province,
+          line
 
 
         });
@@ -76,7 +77,8 @@ router.post('/register', (req, res) => {
           password,
           telephone,
           firstnum,
-          province
+          province,
+          line
         });
 
         bcrypt.genSalt(10, (err, salt) => {
@@ -120,5 +122,8 @@ router.get('/logout', (req, res) => {
 //Find
 router.get('/:firstnum',carController.find);
 router.get('/:province',carController.find);
+//fetch
+
+
 module.exports = router;
 
