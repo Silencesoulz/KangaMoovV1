@@ -16,10 +16,10 @@ const { mongo } = require('mongoose');
 router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
 // Register
 router.post('/register', (req, res) => {
-  const { name, email, password, password2, telephone, firstnum,  province } = req.body;
+  const { name, email, password, password2, telephone, line, firstnum,  province, } = req.body;
   let errors = [];
 
-  if (!name || !email || !password || !password2 || !telephone || !firstnum || !province ) {
+  if (!name || !email || !password || !password2 || !telephone || !line || !firstnum || !province ) {
     errors.push({ msg: 'Please enter all fields' });
   }
 
@@ -36,7 +36,7 @@ router.post('/register', (req, res) => {
   if(!(firstnum.length =6 || 7)) {
     error.push({msg: 'เลขชุดหน้าประกอบไปด้วย 2-3หลัก เช่น AA หรือ 1AA' });
   }
-  
+
   if(province.length >20) {
     error.push({msg: 'ไม่มีจังหวัดนี้'});
   }
@@ -48,6 +48,7 @@ router.post('/register', (req, res) => {
       password,
       password2,
       telephone,
+      line,
       firstnum,
       province
 
@@ -64,6 +65,7 @@ router.post('/register', (req, res) => {
           password,
           password2,
           telephone,
+          line,
           firstnum,
           province
 
@@ -76,6 +78,7 @@ router.post('/register', (req, res) => {
           password,
           telephone,
           firstnum,
+          line,
           province
         });
 
