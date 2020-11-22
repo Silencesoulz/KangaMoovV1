@@ -1,25 +1,139 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <a class="navbar-brand" href="#">Kangamoov</a>
-  <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-      aria-expanded="false" aria-label="Toggle navigation"></button>
-  <div class="collapse navbar-collapse" id="collapsibleNavId">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="/welcome">Home<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/users/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/users/register">Register</a>
-      </li>
-    </ul>
-  </div>
-</nav> 
-<div class="row mt-5">
-  <div class="col-md-6 m-auto">
-    <br><div class="card card-body text-center">
-      <h1><img src="https://images-platform.99static.com//uBHFGaLfYeszACdjYJvbb4qCCa4=/0x1601:532x2133/fit-in/500x500/99designs-contests-attachments/98/98716/attachment_98716968" alt="Kangamoov-logo"></i></h1>
-    </div>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Veicolo</title>
+  <link href='https://fonts.googleapis.com/css?family=Didact Gothic' rel='stylesheet'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+body{
+    font-family: 'Didact Gothic';
+}
+#hohome{
+    background: none;
+    height:100%;
+}
+#home-bg-video{
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-50%) translateY(-50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+
+}
+#home-overlay{
+   
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#home-content{
+   width:100%;
+   height: 100%;
+   display: table; 
+   margin-top: 100px;
+
+}
+#home-content-inner{
+    display: table-cell;
+    vertical-align: middle;
+
+}
+#home-heading h1{
+    color: white;
+    font-size: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    
+}
+#home-heading h1 span{
+    color:rgb(0, 255, 242);
+    font-weight:700;
+}
+#home-text p{
+    color: white;
+    font-size: 20px;
+    font-weight: 100;
+    margin: 8px 0 30px 0;
+
+}
+.btn-general{
+border-radius: 28px;
+font-family: 'Didact Gothic';
+font-size: 13px;
+text-transform: uppercase;
+margin: 0 6px;
+padding: 12px 46px 12px 46px;
+transition: all 0.4s;
+background-color: orange;
+color: white;
+}
+.btn-genes{
+border-radius: 28px;
+font-family: 'Didact Gothic';
+font-size: 13px;
+text-transform: uppercase;
+margin: 0 6px;
+padding: 12px 46px 12px 46px;
+transition: all 0.4s;
+background-color: rgb(49, 206, 70);
+color: white;
+}
+
+</style>
+</head>
+
+<body>
+  
+    <section id="hohome"><video id="home-bg-video" src="../public/video.mp4" autoplay muted loop></video>
+    <div id="home-overlay">
+    <div class="container">
+     <div id="home-content">
+         <div id="home-content-inner" class="text-left">
+             <div id="home-heading">
+                 <h1 id="home-head-1">Welcome </h1>
+                 <h1 id="home-head-2">to<span> Veicolo</span></h1>
+             </div>
+<div id="home-text">
+    <p> Double parking is one of the key contributors to traffic congestion on urban streets.<br>
+         Veicolo is the website that provides a solution to double parking problem. </p>
 </div>
+<div id="home-btn">
+    <a href="/users/login" class="btn-general"role="button">Sign in</a>&nbsp;&nbsp;&nbsp;
+    <a href="/users/register" class="btn-genes"role="button">Sign up</a>
+</div>
+         </div>
+     </div>
+    </div>
+    </div>
+    
+    
+    </section>
+    <br><br><br>
+    <hr style="height:1px; color:white; background-color: white;   ">
+    <footer>
+        <div class="row">
+            <div class="col-md-6">
+                <p style="color: white; ">Veicolo by KMITL sec2 group5</p>
+            </div>
+            <div class="col-md-6 text-md-right">
+                 
+                <a href="" class="text-white">About us</a>
+            </div>
+        </div>
+    </footer>
+    
+
+
+
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

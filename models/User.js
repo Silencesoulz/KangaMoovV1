@@ -24,6 +24,10 @@ const UserSchema = new mongoose.Schema({
   province: {
     type: String,
     required: true
+  },
+  line: {
+    type: String,
+    required: true
   }
 });
 

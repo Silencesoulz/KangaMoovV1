@@ -1,183 +1,348 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <a class="navbar-brand" href="#">Kangamoov</a>
-  <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-      aria-expanded="false" aria-label="Toggle navigation"></button>
-  <div class="collapse navbar-collapse" id="collapsibleNavId">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="/welcome">Home<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/users/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/users/register">Register</a>
-      </li>
-    </ul>
-  </div>
-</nav> 
-<% include ./partials/messages %>
-<div class="row mt-5">
-  <div class="col-md-6 m-auto">
-    
-      <br><h1 class="text-center mb-3">Register</h1>     
-      <form action="/users/register" method="POST">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input
-            type="name"
-            id="name"
-            name="name"
-            class="form-control"
-            placeholder="Enter Name"
-            value="<%= typeof name != 'undefined' ? name : '' %>"
-          />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="form-control"
-            placeholder="Enter Email"
-            value="<%= typeof email != 'undefined' ? email : '' %>"
-          />
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            class="form-control"
-            placeholder="Create Password"
-            value="<%= typeof password != 'undefined' ? password : '' %>"
-          />
-        </div>
-        <div class="form-group">
-          <label for="password2">Confirm Password</label>
-          <input
-            type="password"
-            id="password2"
-            name="password2"
-            class="form-control"
-            placeholder="Confirm Password"
-            value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
-          />
-        </div>
-        <div class="form-group">
-          <label for="telephone">Telephone</label>
-          <input
-            type="text"
-            id="telephone"
-            name="telephone"
-            class="form-control"
-            placeholder="Ex.081-XXX-XXXX"
-            value="<%= typeof telephone != 'undefined' ? telephone : '' %>"
-          />
-        </div>
-        <div class="form-group">
-          <label for="firstnum">ทะเบียนรถ</label>
-          <input
-            type="text"
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Veicolo</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background:rgba(255, 247, 210, 0.89);
+}
+.container{
+  position: absolute;
+  max-width: 800px;
+  height: 500px;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.myRight{
+  position: relative;
+  background-image:linear-gradient(45deg,rgb(150, 143, 255),rgb(126, 97, 255));
+  border-radius: 25px;
+  height: auto;
+  padding: 25px;
+  color: white;
+  font-size:12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.myLeft{
+  position: relative;
+  background-color: white;
+  border-radius: 25px;
+  height: auto;
+  padding: 25px;
+  padding-left: 50px;
+}
+.myLeft header {
+  color: rgb(99, 64, 255);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.row{
+  height: 100%;
+}
+.myCard{
+  position: relative;
+  
+  height: 100%;
+  border-radius: 25px;
+}
+.myRight header{
+  color: rgb(255, 255, 255);
+  font-size: 44px;
+}
+.myRight .butt{
+  background: linear-gradient(rgb(255, 131, 82),rgb(255, 118, 26));
+  color: rgb(255, 255, 255);
+  width: 230px;
+  border: none;
+  font-size: 15px;
+  border-radius: 25px;
+  padding: 10px;
+}
+.myRight .butt:hover{
+  background: linear-gradient(rgb(255, 199, 114),rgb(245, 135, 45));
+}
+.box{
+  position: relative;
+  margin: 20px;
+  margin-bottom:100px;
+}
+.myLeft .myInput{
+  width:230px;
+  border-radius: 25px;
+  padding: 10px;
+  padding-left: 50px;
+  border: none;
+  background: wheat;
+  
+}
+.myLeft .myInput:focus{
+  outline: none;
+}
+.myForm{
+  position: relative;
+  margin-top: 50px;
+}
+.myLeft .RegisLeft{
+  background: linear-gradient(rgb(82, 82, 255),rgb(106, 26, 255));
+  color: rgb(214, 214, 214);
+  width: 230px;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+ 
+}
+.myLeft .RegisLeft:hover{
+  background: linear-gradient(rgb(114, 123, 255),rgb(45, 125, 245));
+}
+.myLeft .fas{
+  position: relative;
+  color: rgb(60, 104, 247);
+  
+}
+.myForm .prov{
+background-color: wheat;
+
+font-size: 13px;
+width: 230px;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  
+}
+.img img{
+  height: 200px;
+  margin: 15px;
+}
+  </style>
+  
+  </head>
+  <body>
+      <div class="container">
+        <div class="myCard">
+          <div class="row ">
+            <div class="col-md-6">
+              <div class="myLeft">
+                <% include ./partials/messages %>
+                <form class="myForm text-center" action="/users/register" method="POST">
+                    
+                    <div class="img">
+        
+                      <img src="/public/Regis.svg">
+                     
+                    </div>
+                    <header>Register</header>
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <i class="fas fa-user"></i><br>
+                      <input class="myInput"  type="name" id="name"
+                      name="name" value="<%= typeof name != 'undefined' ? name : '' %>" 
+                      placeholder="Fill your name" >
+                     
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email</label>
+                      <i class="fas fa-envelope"></i><br>
+                      <input class="myInput"
+                      type="email"
+                      id="email"
+                      name="email"
+                      value="<%= typeof email != 'undefined' ? email : '' %>"
+                       placeholder="Fill your Email" >
+                     
+                    </div>
+
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <i class="fas fa-unlock-alt"></i><br>
+                      <input class="myInput"
+                      type="password"
+                      id="password"
+                      name="password"
+                      value="<%= typeof password != 'undefined' ? password : '' %>"
+                       placeholder="Create Password" >
+                     
+                    </div>
+                    <div class="form-group">
+                      <label for="password2">Confirm Password</label>
+                      <i class="fas fa-fingerprint"></i><br>
+                      <input class="myInput"
+                      type="password"
+                      id="password2"
+                      name="password2"
+                      value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+                       placeholder="Confirm Password" >
+                     
+                    </div>
+                    <div class="form-group">
+                      <label for="telephone">Telephone</label>
+                      <i class="fas fa-mobile-alt"></i><br>
+                      <input class="myInput"
+                      type="text"
+                      id="telephone"
+                      name="telephone"
+                      value="<%= typeof telephone != 'undefined' ? telephone : '' %>"
+
+                       placeholder="Ex.092xxxxxxx" >
+                     
+                    </div>
+                    <div class="form-group">
+                      <label for="line">Line id</label>
+                      <i style="color: green;" class="fab fa-line"></i><br>
+
+                      <input class="myInput" 
+                      type="text"
+                        id="line"
+                       name="line"
+                       value="<%= typeof line != 'undefined' ? line : '' %>"
+
+                      placeholder="Fill your Line id" >
+                     
+                    </div>
+                    <div class="form-group">
+                      <label for="firstnum">Vehicle registration plate</label>
+                      <i class="fas fa-car"></i><br>
+                      <input class="myInput" 
+                      type="text"
             id="firstnum"
             name="firstnum"
-            class="form-control"
-            placeholder="Ex. AA , 1AA , 1AB"
             value="<%= typeof firstnum != 'undefined' ? firstnum : '' %>"
-          />
+                      placeholder="Ex.1กก1111 " >
+                     
+                    </div>
+                    <div class="form-group"  type="text" id="province" name="province">
+                      <label for="province">City</label>
+                      <i class="fas fa-city"></i><br>
+                      <select name="province" class="prov">
+                        <option value="" selected>--------- Select City ---------</option>
+                        <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+                        <option value="กระบี่">กระบี่ </option>
+                        <option value="กาญจนบุรี">กาญจนบุรี </option>
+                        <option value="กาฬสินธุ์">กาฬสินธุ์ </option>
+                        <option value="กำแพงเพชร">กำแพงเพชร </option>
+                        <option value="ขอนแก่น">ขอนแก่น</option>
+                        <option value="จันทบุรี">จันทบุรี</option>
+                        <option value="ฉะเชิงเทรา">ฉะเชิงเทรา </option>
+                        <option value="ชัยนาท">ชัยนาท </option>
+                        <option value="ชัยภูมิ">ชัยภูมิ </option>
+                        <option value="ชุมพร">ชุมพร </option>
+                        <option value="ชลบุรี">ชลบุรี </option>
+                        <option value="เชียงใหม่">เชียงใหม่ </option>
+                        <option value="เชียงราย">เชียงราย </option>
+                        <option value="ตรัง">ตรัง </option>
+                        <option value="ตราด">ตราด </option>
+                        <option value="ตาก">ตาก </option>
+                        <option value="นครนายก">นครนายก </option>
+                        <option value="นครปฐม">นครปฐม </option>
+                        <option value="นครพนม">นครพนม </option>
+                        <option value="นครราชสีมา">นครราชสีมา </option>
+                        <option value="นครศรีธรรมราช">นครศรีธรรมราช </option>
+                        <option value="นครสวรรค์">นครสวรรค์ </option>
+                        <option value="นราธิวาส">นราธิวาส </option>
+                        <option value="น่าน">น่าน </option>
+                        <option value="นนทบุรี">นนทบุรี </option>
+                        <option value="บึงกาฬ">บึงกาฬ</option>
+                        <option value="บุรีรัมย์">บุรีรัมย์</option>
+                        <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์ </option>
+                        <option value="ปทุมธานี">ปทุมธานี </option>
+                        <option value="ปราจีนบุรี">ปราจีนบุรี </option>
+                        <option value="ปัตตานี">ปัตตานี </option>
+                        <option value="พะเยา">พะเยา </option>
+                        <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา </option>
+                        <option value="พังงา">พังงา </option>
+                        <option value="พิจิตร">พิจิตร </option>
+                        <option value="พิษณุโลก">พิษณุโลก </option>
+                        <option value="เพชรบุรี">เพชรบุรี </option>
+                        <option value="เพชรบูรณ์">เพชรบูรณ์ </option>
+                        <option value="แพร่">แพร่ </option>
+                        <option value="พัทลุง">พัทลุง </option>
+                        <option value="ภูเก็ต">ภูเก็ต </option>
+                        <option value="มหาสารคาม">มหาสารคาม </option>
+                        <option value="มุกดาหาร">มุกดาหาร </option>
+                        <option value="แม่ฮ่องสอน">แม่ฮ่องสอน </option>
+                        <option value="ยโสธร">ยโสธร </option>
+                        <option value="ยะลา">ยะลา </option>
+                        <option value="ร้อยเอ็ด">ร้อยเอ็ด </option>
+                        <option value="ระนอง">ระนอง </option>
+                        <option value="ระยอง">ระยอง </option>
+                        <option value="ราชบุรี">ราชบุรี</option>
+                        <option value="ลพบุรี">ลพบุรี </option>
+                        <option value="ลำปาง">ลำปาง </option>
+                        <option value="ลำพูน">ลำพูน </option>
+                        <option value="เลย">เลย </option>
+                        <option value="ศรีสะเกษ">ศรีสะเกษ</option>
+                        <option value="สกลนคร">สกลนคร</option>
+                        <option value="สงขลา">สงขลา </option>
+                        <option value="สมุทรสาคร">สมุทรสาคร </option>
+                        <option value="สมุทรปราการ">สมุทรปราการ </option>
+                        <option value="สมุทรสงคราม">สมุทรสงคราม </option>
+                        <option value="สระแก้ว">สระแก้ว </option>
+                        <option value="สระบุรี">สระบุรี </option>
+                        <option value="สิงห์บุรี">สิงห์บุรี </option>
+                        <option value="สุโขทัย">สุโขทัย </option>
+                        <option value="สุพรรณบุรี">สุพรรณบุรี </option>
+                        <option value="สุราษฎร์ธานี">สุราษฎร์ธานี </option>
+                        <option value="สุรินทร์">สุรินทร์ </option>
+                        <option value="สตูล">สตูล </option>
+                        <option value="หนองคาย">หนองคาย </option>
+                        <option value="หนองบัวลำภู">หนองบัวลำภู </option>
+                        <option value="อำนาจเจริญ">อำนาจเจริญ </option>
+                        <option value="อุดรธานี">อุดรธานี </option>
+                        <option value="อุตรดิตถ์">อุตรดิตถ์ </option>
+                        <option value="อุทัยธานี">อุทัยธานี </option>
+                        <option value="อุบลราชธานี">อุบลราชธานี</option>
+                        <option value="อ่างทอง">อ่างทอง </option>
+                        <option value="อื่นๆ">อื่นๆ</option>
+                  </select>
+                  
+                    </div>
+
+                    <button type="submit" class="RegisLeft" >
+                      Register
+                    </button>
+
+                </form>
+              </div>
+
+            </div>
+            <div class="col-md-6">
+              <div class="myRight">
+                <div class="box">
+                  <img style="width: 200px; margin-bottom: 50px;"src="/public/log.svg">
+                  <header>Welcome to Veicolo</header><br>
+                   <p style="font-size: 15px; font-weight: 200;">Please register to join our service.</p><br>
+                   <p style="font-size: 15px; font-weight: 400;">Have an account?</p>
+                   <a href="/users/login">
+                   <button class="butt"  >Sign in</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="form-group" type="text" id="province" name="province" class="">
-          <p>จังหวัด</p>
-            <select name="province" style="width: 100%;">
-              <option value="" selected>เลือกจังหวัด</option>
-              <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
-              <option value="กระบี่">กระบี่ </option>
-              <option value="กาญจนบุรี">กาญจนบุรี </option>
-              <option value="กาฬสินธุ์">กาฬสินธุ์ </option>
-              <option value="กำแพงเพชร">กำแพงเพชร </option>
-              <option value="ขอนแก่น">ขอนแก่น</option>
-              <option value="จันทบุรี">จันทบุรี</option>
-              <option value="ฉะเชิงเทรา">ฉะเชิงเทรา </option>
-              <option value="ชัยนาท">ชัยนาท </option>
-              <option value="ชัยภูมิ">ชัยภูมิ </option>
-              <option value="ชุมพร">ชุมพร </option>
-              <option value="ชลบุรี">ชลบุรี </option>
-              <option value="เชียงใหม่">เชียงใหม่ </option>
-              <option value="เชียงราย">เชียงราย </option>
-              <option value="ตรัง">ตรัง </option>
-              <option value="ตราด">ตราด </option>
-              <option value="ตาก">ตาก </option>
-              <option value="นครนายก">นครนายก </option>
-              <option value="นครปฐม">นครปฐม </option>
-              <option value="นครพนม">นครพนม </option>
-              <option value="นครราชสีมา">นครราชสีมา </option>
-              <option value="นครศรีธรรมราช">นครศรีธรรมราช </option>
-              <option value="นครสวรรค์">นครสวรรค์ </option>
-              <option value="นราธิวาส">นราธิวาส </option>
-              <option value="น่าน">น่าน </option>
-              <option value="นนทบุรี">นนทบุรี </option>
-              <option value="บึงกาฬ">บึงกาฬ</option>
-              <option value="บุรีรัมย์">บุรีรัมย์</option>
-              <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์ </option>
-              <option value="ปทุมธานี">ปทุมธานี </option>
-              <option value="ปราจีนบุรี">ปราจีนบุรี </option>
-              <option value="ปัตตานี">ปัตตานี </option>
-              <option value="พะเยา">พะเยา </option>
-              <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา </option>
-              <option value="พังงา">พังงา </option>
-              <option value="พิจิตร">พิจิตร </option>
-              <option value="พิษณุโลก">พิษณุโลก </option>
-              <option value="เพชรบุรี">เพชรบุรี </option>
-              <option value="เพชรบูรณ์">เพชรบูรณ์ </option>
-              <option value="แพร่">แพร่ </option>
-              <option value="พัทลุง">พัทลุง </option>
-              <option value="ภูเก็ต">ภูเก็ต </option>
-              <option value="มหาสารคาม">มหาสารคาม </option>
-              <option value="มุกดาหาร">มุกดาหาร </option>
-              <option value="แม่ฮ่องสอน">แม่ฮ่องสอน </option>
-              <option value="ยโสธร">ยโสธร </option>
-              <option value="ยะลา">ยะลา </option>
-              <option value="ร้อยเอ็ด">ร้อยเอ็ด </option>
-              <option value="ระนอง">ระนอง </option>
-              <option value="ระยอง">ระยอง </option>
-              <option value="ราชบุรี">ราชบุรี</option>
-              <option value="ลพบุรี">ลพบุรี </option>
-              <option value="ลำปาง">ลำปาง </option>
-              <option value="ลำพูน">ลำพูน </option>
-              <option value="เลย">เลย </option>
-              <option value="ศรีสะเกษ">ศรีสะเกษ</option>
-              <option value="สกลนคร">สกลนคร</option>
-              <option value="สงขลา">สงขลา </option>
-              <option value="สมุทรสาคร">สมุทรสาคร </option>
-              <option value="สมุทรปราการ">สมุทรปราการ </option>
-              <option value="สมุทรสงคราม">สมุทรสงคราม </option>
-              <option value="สระแก้ว">สระแก้ว </option>
-              <option value="สระบุรี">สระบุรี </option>
-              <option value="สิงห์บุรี">สิงห์บุรี </option>
-              <option value="สุโขทัย">สุโขทัย </option>
-              <option value="สุพรรณบุรี">สุพรรณบุรี </option>
-              <option value="สุราษฎร์ธานี">สุราษฎร์ธานี </option>
-              <option value="สุรินทร์">สุรินทร์ </option>
-              <option value="สตูล">สตูล </option>
-              <option value="หนองคาย">หนองคาย </option>
-              <option value="หนองบัวลำภู">หนองบัวลำภู </option>
-              <option value="อำนาจเจริญ">อำนาจเจริญ </option>
-              <option value="อุดรธานี">อุดรธานี </option>
-              <option value="อุตรดิตถ์">อุตรดิตถ์ </option>
-              <option value="อุทัยธานี">อุทัยธานี </option>
-              <option value="อุบลราชธานี">อุบลราชธานี</option>
-              <option value="อ่างทอง">อ่างทอง </option>
-              <option value="อื่นๆ">อื่นๆ</option>
-        </select>
-        </div>       
-        <button type="submit" class="btn btn-primary btn-block">Register</button>
-      </form>
-    </div>
-  </div>
-</div>
+      </div>
 
 
 
 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
