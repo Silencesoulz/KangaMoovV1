@@ -15,10 +15,17 @@ const { forwardAuthenticated } = require('../config/auth');
 router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
 // Register
 router.post('/register', (req, res) => {
+<<<<<<< HEAD
+  const { name, email, password, password2, telephone, line, firstnum,  province, } = req.body;
+  let errors = [];
+
+  if (!name || !email || !password || !password2 || !telephone || !line || !firstnum || !province ) {
+=======
   const { name, email, password, password2, telephone, firstnum,  province,line } = req.body;
   let errors = [];
 
   if (!name || !email || !password || !password2 || !telephone || !firstnum || !province || !line ) {
+>>>>>>> c0bf96a41849e7a06396e51a25e51757683380c2
     errors.push({ msg: 'Please enter all fields' });
   }
 
@@ -35,7 +42,7 @@ router.post('/register', (req, res) => {
   if(!(firstnum.length =6 || 7)) {
     error.push({msg: 'เลขชุดหน้าประกอบไปด้วย 2-3หลัก เช่น AA หรือ 1AA' });
   }
-  
+
   if(province.length >20) {
     error.push({msg: 'ไม่มีจังหวัดนี้'});
   }
@@ -47,6 +54,7 @@ router.post('/register', (req, res) => {
       password,
       password2,
       telephone,
+      line,
       firstnum,
       province,
       line
@@ -64,6 +72,7 @@ router.post('/register', (req, res) => {
           password,
           password2,
           telephone,
+          line,
           firstnum,
           province,
           line
@@ -77,8 +86,13 @@ router.post('/register', (req, res) => {
           password,
           telephone,
           firstnum,
+<<<<<<< HEAD
+          line,
+          province
+=======
           province,
           line
+>>>>>>> c0bf96a41849e7a06396e51a25e51757683380c2
         });
 
         bcrypt.genSalt(10, (err, salt) => {
