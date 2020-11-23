@@ -123,7 +123,7 @@ router.get('/logout', (req, res) => {
 
 //Find
 router.get('/:firstnum',carController.find);
-router.get('/:province',carController.find);
+
 //fetch
 
 

@@ -48,7 +48,24 @@
           <p style="width:100%;padding: 10px;border: 1px solid rgb(255, 255, 255);color: black;"><%=user.email%><br></p>
           <p style="width:100%;padding: 10px;border: 1px solid rgb(255, 255, 255);color: black;"><%=user.telephone%><br></p>
           <p style="width:100%;padding: 10px;border: 1px solid rgb(255, 255, 255);color: black;"><%=user.firstnum%><br></p>
-          <br><p align="center"><a href="/users/logout" class="btn btn-secondary" style="background-color: rgb(128, 59, 255);">logout</a></p>
+          <br>
+          <p align="center" style="color: rgb(0, 0, 0); font-size: 20px;" >Find car plate</p>
+          <form action="/users/:firstnum" method="GET">
+            <div class="form-group">
+              <input
+                type="text"
+                name="firstnum"
+                class="form-control"
+                placeholder="Enter plate number"
+                required
+              />
+            </div>
+            
+            <button type="submit" style="background-color: green; border: none;" class="btn btn-primary btn-block" id='getdata' onclick="GetData()">Search</button>
+          </form>
+  
+          <br>
+          <p align="center"><a href="/users/logout" class="btn btn-secondary" style="background-color: rgb(128, 59, 255);">logout</a></p>
         </div>
       </div>
     </div>
