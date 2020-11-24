@@ -1,73 +1,52 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Veicolo</title>
-  <link href='https://fonts.googleapis.com/css?family=Didact Gothic' rel='stylesheet'>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<style>
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href='https://fonts.googleapis.com/css?family=Didact Gothic' rel='stylesheet'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
 body{
     font-family: 'Didact Gothic';
     
 }
-#hohome{
-    background: none;
-    height:100%;
-   
+
+.vide{
+    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
 }
-#home-bg-video{
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translateX(-20%) translateY(-20%); 
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1;
-    
+.container{
+    height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  object-fit: contain;
+}
+.container > h1{
+    color: #fff;
+  font-size: 100px;
+  margin-top: -100px;
+  font-weight: 700;
+}
+.container > p{
+    margin-top: 8px;
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
 
 }
-#home-overlay{
-   
-    width: 100%;
-    height: 100%;
-    position: relative;
-    
-}
-#home-content{
-   width:100%;
-   height: 100%;
-   display: table; 
-   margin-top: 100px;
 
-}
-#home-content-inner{
-    display: table-cell;
-    vertical-align: middle;
-
-}
-#home-heading h1{
-    color: rgb(0, 0, 0);
-    font-size: 50px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin: 0;
-    
-}
-#home-heading h1 span{
-    color:rgb(255, 60, 0);
-    font-weight:700;
-}
-#home-text p{
-    color: rgb(0, 0, 0);
-    font-size: 25px;
-    font-weight: 100;
-    margin: 8px 0 30px 0;
-    
-
-}
 .btn-general{
 border-radius: 28px;
 font-family: 'Didact Gothic';
@@ -90,55 +69,43 @@ transition: all 0.4s;
 background-color: rgb(49, 206, 70);
 color: white;
 }
+ 
 
-</style>
+  </style>
 </head>
+  <body>
+      
+      <div class="container">
+          <video class="vide"src="../public/12.mp4" autoplay muted loop>
 
-<body>
+          </video>
+          <h1>Welcome to <span style="color: rgb(0, 217, 255);">Veicolo</span> </h1>
+          <p> Double parking is one of the key contributors to traffic congestion on urban streets.
+            Veicolo is the website that provides a solution to double parking problem.</p> <br>
+          <div class="home-button">
+            <a href="/users/login" class="btn-general"role="button">Sign in</a>&nbsp;&nbsp;&nbsp;
+            <a href="/users/register" class="btn-genes"role="button">Sign up</a>
+          </div>
+          
+      </div>
+    
   
-    <section id="hohome"><video  id="home-bg-video" src="../public/mm.mp4" autoplay muted loop></video>
-    <div id="home-overlay">
-    <div class="container">
-     <div id="home-content">
-         <div id="home-content-inner" class="text-left">
-             <div id="home-heading">
-                 <h1 id="home-head-1">Welcome </h1>
-                 <h1 id="home-head-2">to<span> Veicolo</span></h1>
-             </div>
-<div id="home-text">
-    <p> Double parking is one of the key contributors to traffic congestion on urban streets.<br>
-         Veicolo is the website that provides a solution to double parking problem. </p>
-</div>
-<div id="home-btn">
-    <a href="/users/login" class="btn-general"role="button">Sign in</a>&nbsp;&nbsp;&nbsp;
-    <a href="/users/register" class="btn-genes"role="button">Sign up</a>
-</div>
-         </div>
-     </div>
-    </div>
-    </div>
     
-    
-    </section>
-    <br><br><br>
-    <hr style="height:1px; color:rgb(255, 255, 255); background-color: rgb(255, 255, 255);   ">
-    <footer>
-        <div class="row">
-            <div class="col-md-6">
-                <p style="color: rgb(255, 255, 255); ">Veicolo by KMITL sec2 group5</p>
-            </div>
-            <div class="col-md-6 text-md-right">
-                 
-                <a href="" class="text-white">About us</a>
-            </div>
-        </div>
-    </footer>
-    
-
-
-
-     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
